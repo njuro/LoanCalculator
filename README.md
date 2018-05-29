@@ -20,7 +20,7 @@ a fixnej ročnej úrokovej miery vyjadrenej v percentách sa podľa vzorca vypo�
 
 ## Technické riešenie
 ### Backend
-Backend (zložka *server*) je písaný v jazyke Java za použitia frameworku *Spring Boot* vhodného pre rapídne prototypovanie aplikácii. Backend svoju funkcionalitu zdieľa cez REST API endpoint.
+Backend (zložka *server*) je písaný v jazyku Java za použitia frameworku *Spring Boot*, vhodného pre rapídne prototypovanie aplikácii. Backend svoju funkcionalitu zdieľa cez REST API endpoint.
 
 ### Frontend
 Frontend (zložka *client*) je vytvorený v TypeScripte pomocou platformy *Angular 6*, použité UI komponenty sú zo sady *Angular Material 2* a sú prispôsobené aj na prezeranie na mobilných zariadeniach. S backendom komunikuje pomocou asynchrónnych HTTP dotazov na API endpointy.
