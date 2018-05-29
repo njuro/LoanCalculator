@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoanController {
 
     @PostMapping(value = "/calculate-loan")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     public CalculatedLoan calculateLoan(@RequestBody Loan loan) {
         return LoanCalculator.calculateLoan(loan);
     }
