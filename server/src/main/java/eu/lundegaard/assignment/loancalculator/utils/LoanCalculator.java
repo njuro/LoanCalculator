@@ -34,8 +34,8 @@ public class LoanCalculator {
     }
 
     private static BigDecimal getMonthlyInterestRate() {
-        return BigDecimal.valueOf(ANNUAL_INTEREST_RATE_PERCENTAGE).setScale(6, RoundingMode.HALF_UP)
-                .divide(BigDecimal.valueOf(12 * 100), RoundingMode.HALF_UP);
+        return BigDecimal.valueOf(ANNUAL_INTEREST_RATE_PERCENTAGE).setScale(6, RoundingMode.HALF_EVEN)
+                .divide(BigDecimal.valueOf(12 * 100), RoundingMode.HALF_EVEN);
     }
 
 }
