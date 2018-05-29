@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class LoanService {
 
-  private apiUrl = 'http://localhost:8080/calculate-loan';
+  private apiUrl = 'http://212.47.234.160:8080/calculate-loan';
 
 
   constructor(private http: HttpClient) {
