@@ -6,7 +6,8 @@ import {LoanCalculatorComponent} from './loan-calculator/loan-calculator.compone
 import {HttpClientModule} from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material';
+import {MatCardModule, MatCheckboxModule, MatDividerModule, MatInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,13 @@ import {MatInputModule} from '@angular/material';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MatSliderModule,
     MatInputModule,
+    MatCardModule,
+    MatDividerModule,
+    MatCheckboxModule,
     FormsModule
   ],
   providers: [],

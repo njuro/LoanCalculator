@@ -22,6 +22,8 @@ export class LoanService {
   calculateLoan(loan: Loan): Observable<CalculatedLoan> {
     console.log('Posting loan');
     console.log(loan);
-    return this.http.post<CalculatedLoan>(this.apiUrl, loan, httpOptions);
+    if (loan.numberOfMonths > 0 && loan.amount > 0) {
+      return this.http.post<CalculatedLoan>(this.apiUrl, loan, httpOptions);
+    }
   }
 }
