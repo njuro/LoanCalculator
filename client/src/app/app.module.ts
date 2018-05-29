@@ -8,6 +8,13 @@ import {MatSliderModule} from '@angular/material/slider';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule, MatCheckboxModule, MatDividerModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule, Routes} from '@angular/router';
+
+
+const appRoutes: Routes = [
+  {path: 'loan-calculator', component: LoanCalculatorComponent, data: {title: 'Loan Calculator'}},
+  {path: '', redirectTo: '/loan-calculator', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -15,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoanCalculatorComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

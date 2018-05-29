@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoanService} from '../loan.service';
 import {Loan} from '../loan';
 import {CalculatedLoan} from '../calculated-loan';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-loan-calculator',
@@ -14,12 +15,13 @@ export class LoanCalculatorComponent implements OnInit {
 
   calculatedLoan: CalculatedLoan;
 
-  constructor(private loanService: LoanService) {
+  constructor(private titleService: Title, private loanService: LoanService) {
   }
 
   ngOnInit() {
-    this.loan.amount = 120000;
-    this.loan.numberOfMonths = 60;
+    this.titleService.setTitle('Loan Calculator');
+    this.loan.amount = 100000;
+    this.loan.numberOfMonths = 96;
     this.calculateLoan(this.loan);
   }
 

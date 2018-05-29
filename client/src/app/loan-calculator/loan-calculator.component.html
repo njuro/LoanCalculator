@@ -1,33 +1,43 @@
 <mat-card>
   <mat-card-title>Calculate your loan</mat-card-title>
-  <mat-card-subtitle>Select amount you want to loan and how long do you want to pay</mat-card-subtitle>
+  <mat-card-subtitle>Select amount you want to loan and for how long</mat-card-subtitle>
 
   <mat-card-content>
     <mat-slider [min]="5000" [step]="5000" [max]="800000" [(ngModel)]="loan.amount"
-                (input)="calculateLoan(loan)"></mat-slider>
+                (change)="calculateLoan(loan)"></mat-slider>
     <mat-form-field>
-      <input matInput min="5000" step="5000" max="800000" placeholder="Loan Amount" type="number"
+      <input (change)="calculateLoan(loan)" matInput min="5000" step="5000" max="800000" placeholder="Loan Amount"
+             type="number"
              [(ngModel)]="loan.amount">
       <span matSuffix>&nbsp;<strong>Kč</strong></span>
     </mat-form-field>
 
     <br/><br/>
 
-    <mat-slider [min]="24" [step]="1" [max]="108" [(ngModel)]="loan.numberOfMonths"
-                (input)="calculateLoan(loan)"></mat-slider>
+    <mat-slider [min]="24" [step]="1" [max]="96" [(ngModel)]="loan.numberOfMonths"
+                (change)="calculateLoan(loan)"></mat-slider>
     <mat-form-field>
-      <input matInput min="24" max="108" placeholder="Number of months" type="number" [(ngModel)]="loan.numberOfMonths">
+      <input (change)="calculateLoan(loan)" matInput min="24" max="96" placeholder="Loan Period" type="number"
+             [(ngModel)]="loan.numberOfMonths">
       <span matSuffix>&nbsp;<strong>Months</strong></span>
+    </mat-form-field>
+
+    <br/>
+
+    Your monthly payment will be
+    <mat-form-field>
+      <strong>
+        <input matInput readonly [ngModel]="calculatedLoan.monthlyPayment | number : '1.2-2'">
+      </strong>
+      <span matSuffix><strong>Kč</strong></span>
     </mat-form-field>
 
     <br/>
     <mat-divider [inset]="true"></mat-divider>
     <br/>
 
-    <div *ngIf="calculatedLoan">
-      Annual interest rate: <strong>{{calculatedLoan.annualInterestRate | number : '1.2-2' }}%</strong><br/>
-      Monthly payment: <strong>{{calculatedLoan.monthlyPayment | number : '1.2-2'}} Kč</strong>
-    </div>
+    <span
+      style="color: gray">Annual interest rate is <strong>{{calculatedLoan.annualInterestRate | number : '1.2-2' }}%</strong>.</span><br/>
   </mat-card-content>
 </mat-card>
 
